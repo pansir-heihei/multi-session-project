@@ -1,5 +1,7 @@
 # multi-session-project（项目拆分组装法）
 
+<img alt="license" src="https://img.shields.io/badge/license-MIT-blue.svg"> <img alt="type" src="https://img.shields.io/badge/type-prompt--skill-orange.svg"> <img alt="works-with" src="https://img.shields.io/badge/works%20with-Claude%20Code%20%2F%20Codex%20%2F%20Cursor-blueviolet.svg">
+
 一个给 AI 编程助手使用的提示词技能（prompt skill）：用**总框架**约束整个项目（PRD 宪法 +
 接口契约），把项目**拆分**成细分模块（任务包），每个模块有自己的**细分框架**（计划书）并
 **预留上下游契约接口**，最后按契约**组装**。以**节省 token 为一级目标**（20 万 tokens
@@ -13,6 +15,23 @@
 > not a capacity one). Includes status gates, cross-document consistency analysis, handoff
 > reports, requirement traceability, and doc-drift checks. The skill body is written in
 > Chinese; see the workflow summary below.
+
+## 30 秒判断它适不适合你
+
+| 你的情况 | 建议 |
+|:---|:---|
+| 单个会话装不下的项目（预计 >20 万 tokens，或 >3 个模块，或要跨多个会话） | ✅ 主用场景 |
+| AI 做到一半开始忘事、改 A 坏 B、重复问同样的问题 | ✅ 正是它要解决的 |
+| 想给 Claude Code / Codex / Cursor 这类工具装一个「拆项目」的技能 | ✅ 见下方「安装使用」 |
+| 小脚本、一次性任务 | ❌ 别用，流程本身有成本 |
+
+## 安装使用 / Installation
+
+把 `SKILL.md` 放进你的 AI 编程助手的技能目录（例如 `~/.agents/skills/multi-session-project/`），
+或按你所用工具的技能加载方式注册。技能为纯提示词类型，无任何代码依赖；如果工具不支持技能目录，直接把 `SKILL.md` 全文粘进系统提示 / 自定义指令，效果一样。
+
+使用时直接告诉助手："用 multi-session-project 方法做这个项目"，或提到
+"项目拆分组装法 / 多会话 / 拆任务 / 分部件开发"等关键词触发。
 
 ## 适用场景 / When to use
 
@@ -52,14 +71,6 @@ multi-session-project/
 ├── SKILL.md      # 技能本体（含 frontmatter：name/description/whenToUse）
 └── README.md     # 本文件
 ```
-
-## 安装使用 / Installation
-
-把 `SKILL.md` 放进你的 AI 编程助手的技能目录（例如 `~/.agents/skills/multi-session-project/`），
-或按你所用工具的技能加载方式注册。技能为纯提示词类型，无任何代码依赖。
-
-使用时直接告诉助手："用 multi-session-project 方法做这个项目"，或提到
-"项目拆分组装法 / 多会话 / 拆任务 / 分部件开发"等关键词触发。
 
 ## 相关项目 / Related
 
